@@ -1,0 +1,79 @@
+#include <iostream>
+using namespace std;
+class Calculator 
+{
+private:
+    float num;
+public:
+    Calculator(float n = 0) 
+    {
+        num = n;
+    }
+    void input() 
+    {
+        cin >> num;
+    }
+    float getNum() {
+        return num;
+    }
+    Calculator operator + (Calculator c) 
+    {
+        Calculator temp;
+        temp.num = num + c.num;
+        return temp;
+    }
+    Calculator operator - (Calculator c)
+    {
+        Calculator temp;
+        temp.num = num - c.num;
+        return temp;
+    }
+    Calculator operator * (Calculator c)
+    {
+        Calculator temp;
+        temp.num = num * c.num;
+        return temp;
+    }
+    Calculator operator / (Calculator c)
+    {
+        Calculator temp;
+        temp.num = num / c.num;
+        return temp;
+    }
+};
+int main() {
+    Calculator num1, num2, result;
+    cout << "Enter the number = ";
+    num1.input();
+    cout << "Enter another number = ";
+    num2.input();
+    int choice;
+   cout << "\nArithmetic Operations:\n";
+    cout << "1. Addition\n";
+    cout << "2. Subtraction\n";
+    cout << "3. Multiplication\n";
+    cout << "4. Division\n";
+    cout << "Enter your choice (1-4): ";
+    cin >> choice;
+    switch(choice) {
+        case 1:
+            result = num1 + num2;
+            cout << "Addition of numbers = " << result.getNum() << endl;
+            break;
+        case 2:
+            result = num1 - num2;
+            cout << "Subtraction of numbers = " << result.getNum() << endl;
+            break;
+        case 3:
+            result = num1 * num2;
+            cout << "Multiplication of numbers = " << result.getNum() << endl;
+            break;
+        case 4:
+            result = num1 / num2;
+            cout << "Division of numbers = " << result.getNum() << endl;
+            break;
+        default:
+            cout << "Invalid choice!" << endl;
+    }
+    return 0;
+}

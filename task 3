@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class MyString 
+{
+private:
+    string str;
+public:
+    MyString(string s = "") 
+    {
+        str = s;
+    }
+    void display() 
+    {
+        cout << "String: " << str << endl;
+    }
+    MyString operator + (MyString obj) 
+    {
+        MyString temp;
+        temp.str = str + " " + obj.str;
+        return temp;
+    }
+};
+int main() 
+{
+    string s1, s2;
+    cout << "Enter the first string: ";
+    getline(cin, s1);
+    cout << "Enter the second string: ";
+    getline(cin, s2);
+    MyString str1(s1);
+    MyString str2(s2);
+    cout << "\nInitial strings:" << endl;
+    str1.display();
+    str2.display();
+    MyString result = str1 + str2;
+    cout << "\nAfter concatenation:" << endl;
+    result.display();
+    return 0;
+}

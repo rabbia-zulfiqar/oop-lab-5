@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+class Counter 
+{
+private:
+    int count;
+public:
+    Counter(int c) 
+    {
+        count = c;
+    }
+    int getCount() 
+    {
+        return count;
+    }
+    void operator++() 
+    {
+        ++count;
+    }
+};
+int main() 
+{
+    Counter c1(5);
+    Counter c2(10);
+    cout << "Initial values of c1=" << c1.getCount() << endl;
+    cout << "Initial values of c2=" << c2.getCount() << endl;
+    ++c1;
+    ++c2;
+    ++c2;
+    cout << "Value after incrementing in C1:" << c1.getCount() << endl;
+    cout << "Value after incrementing in C2=" << c2.getCount() << endl;
+    return 0;
+}
